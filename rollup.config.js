@@ -2,6 +2,7 @@ import svelte from "rollup-plugin-svelte";
 import resolve from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
 import commonjs from "@rollup/plugin-commonjs";
+import nodePolyfills from "rollup-plugin-node-polyfills";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 
@@ -37,6 +38,7 @@ export default {
     }),
     commonjs(),
     json(),
+    nodePolyfills(),
     // In dev mode, call `npm run start` once
     // the bundle has been generated
     !production && serve(),
